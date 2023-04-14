@@ -1,0 +1,16 @@
+{
+    "SamplingCounts": ["500000", "1000000","5000000", "10000000","50000000"], 
+    "Tests": 
+    [ {
+        "TestName":"ASAP-triangle",
+        "AlgPath": "../arya/graph_counting/src/ASAP_single_machine/GraphCounting.out",
+        "GraphPath": "../arya/graph_counting/graphs/mico/mico.undigraph",
+        "PatternPath": "../arya/graph_counting/patterns/triangle"
+    },
+    {
+        "TestName":"arya-triangle",
+        "AlgPath": "../arya/graph_counting/src/multi_thread_single_machine/GraphCounting.out",
+        "GraphPath": "../arya/graph_counting/graphs/mico/mico.undigraph",
+        "PatternPath": "../arya/graph_counting/patterns/triangle"
+    }]
+}

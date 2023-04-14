@@ -1,5 +1,63 @@
 # Process for Setting Up and Running Arya:
 
+# Setting up Arya:
+
+- downloaded source code onto machine [umma@csail.mit.edu]
+
+
+### CPU Info
+```
+Architecture:        x86_64
+CPU op-mode(s):      32-bit, 64-bit
+Byte Order:          Little Endian
+CPU(s):              32
+On-line CPU(s) list: 0-31
+Thread(s) per core:  2
+Core(s) per socket:  8
+Socket(s):           2
+NUMA node(s):        2
+Vendor ID:           GenuineIntel
+CPU family:          6
+Model:               45
+Model name:          Intel(R) Xeon(R) CPU E5-2690 0 @ 2.90GHz
+Stepping:            7
+CPU MHz:             3591.132
+CPU max MHz:         3800.0000
+CPU min MHz:         1200.0000
+BogoMIPS:            5785.77
+Virtualization:      VT-x
+L1d cache:           32K
+L1i cache:           32K
+L2 cache:            256K
+L3 cache:            20480K
+NUMA node0 CPU(s):   0-7,16-23
+NUMA node1 CPU(s):   8-15,24-31
+Flags:               fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx lahf_lm epb pti ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid xsaveopt dtherm ida arat pln pts md_clear flush_l1d
+```
+
+## Makefile modifications
+https://stackoverflow.com/questions/10726537/how-to-install-tbb-from-source-on-linux-and-make-it-work
+- install tbb or link to compiled by-hand-library arya/tbb-2017~U7
+- change makefiles to include tbb manually:
+
+in makefile:
+
+```
+HELPFLAGS = -I$(TBB_INCLUDE) -Wl,-rpath,$(TBB_LIBRARY_RELEASE) -L$(TBB_LIBRARY_RELEASE)
+```
+
+in .bashrc
+
+```
+export TBB_INSTALL_DIR=$HOME/arya/tbb-2017~U7
+export TBB_INCLUDE=$TBB_INSTALL_DIR/include
+export TBB_LIBRARY_RELEASE=$TBB_INSTALL_DIR/build/linux_intel64_gcc_cc7_libc2.27_release
+export TBB_LIBRARY_DEBUG=$TBB_INSTALL_DIR/build/linux_intel64_gcc_cc7_libc2.27_debug
+```
+--------------------
+
+# Arya Usage
+
 ### Graph Inputs:
 - can use .cel files if each edge is symmetrically distributed
 - otherwise can run directed_to_undirected.py on an edge-list to turn it into an undirected edgeless
@@ -14,78 +72,25 @@
 - then the stars, with first vertices being the center
 - then remaining edges
 
+- ASAP runs on hard-coded patterns for 5house, triangle-triangle, 4clique
+
 ### Writing Patterns for Cliques: 
 - a couple edges as 1-stars and then the rest as normal edges?
 - or can do a couple odd length cycles and the remaining edges
 
-# Setting up Arya:
-https://stackoverflow.com/questions/10726537/how-to-install-tbb-from-source-on-linux-and-make-it-work
-- install tbb or link to compiled by-hand-library arya/tbb-2017~U7
-- change makefiles to include tbb manually:
+# Successes
 
-in makefile:
+- friendster and mico report fast/accurate triangle counts, 5 cycle counts, and 3 star counts.
 
-HELPFLAGS = -I$(TBB_INCLUDE) -Wl,-rpath,$(TBB_LIBRARY_RELEASE) -L$(TBB_LIBRARY_RELEASE)
-
-somewhere:
-\# tbb stuff
-export TBB_INSTALL_DIR=$HOME/arya/tbb-2017~U7
-export TBB_INCLUDE=$TBB_INSTALL_DIR/include
-export TBB_LIBRARY_RELEASE=$TBB_INSTALL_DIR/build/linux_intel64_gcc_cc7_libc2.27_release
-export TBB_LIBRARY_DEBUG=$TBB_INSTALL_DIR/build/linux_intel64_gcc_cc7_libc2.27_debug
-
---------------------
-
-## Problems:
+# Problems
 - seeing very high errors on graphs that are not just odd length cycles
-- ASAP implementation -- very high errors
-- some graphs fail to read
 
 results for arya on 4motif:
 https://docs.google.com/spreadsheets/d/1NQPU5_-vb7mE5NGntfIg0ERQvKeQC39d-0r3Xnnk8GM/edit?usp=sharing
 
------------------------
+Paper cites N/A for 3star2star counts-- however, I am returning an exact count and finding arya's estimate to be significantly different.
 
-- wrote 2 patterns for 6clique and for 9clique
-- used the python graph decomposition tool and by hand
-	- both not that successful/accurate
-- friendster.cel file works well
-- refined my dynamic coloring code
-	- removes blank vertices
-	- sorts for locality
-	- overhead should allow fast adjustments to numbers of colors
-- made automated test-running system where you can input json for the tests you want to run
-
---------------
-- try reuse sampler for 4motif -- see if that replicates paper
-- email about 4clique, etc. individual accuracies for 4motif patterns
-- search if there is a way that they calculate average for 4motif in the paper
-	- maybe email if don't find it
-
---------------------------
-- correct count 3star-2star?
-- verify mico and arya and their accuracy/count
-- n choose 3 from neighbors, n choose 2, calculate instead of count
-	- do for every edge
- 	- symmetry? 
-
-- how to detect/respond situation like patent_citation
-	- sparse pattern count, exact count is small
-	- larger graphs that have sparse, or small exact count.
-	- dynamic adjustment of c
-
-- ELP for estimation of c
-- edge sparsification granularity when doing edge induced count
-
----------------------
-- use bigger machines for larger patterns
-- friendster.cel graph there
-	- more cores/threads
-
-
-------------------
-mico - 
-why is 3star-2star N/A error?
-
+## ASAP Problems
+- mico 5house is quite different (ASAP: 26,511,846,609,059 vs edge-count: 1,655,449,692,098).
 
 
