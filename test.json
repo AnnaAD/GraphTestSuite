@@ -1,0 +1,79 @@
+[
+    /*------ARYA TRIANGLE------*/
+    {
+        "TestName":"arya",
+        "AlgPath": "graph_counting/src/multi_thread_single_machine/GraphCounting.out",
+        "GraphPath": "friendster",
+        "PatternPath": "triangle"
+    },
+    {
+        "TestName":"arya",
+        "AlgPath": "graph_counting/src/multi_thread_single_machine/GraphCounting.out",
+        "GraphPath": "livej",
+        "PatternPath": "triangle"
+    },
+    {
+        "TestName":"arya",
+        "AlgPath": "graph_counting/src/multi_thread_single_machine/GraphCounting.out",
+        "GraphPath": "okrut",
+        "PatternPath": "triangle"
+    },
+    {
+        "TestName":"arya",
+        "AlgPath": "graph_counting/src/multi_thread_single_machine/GraphCounting.out",
+        "GraphPath": "twitter40",
+        "PatternPath": "triangle"
+    },
+    /*------ASAP TRIANGLE------*/
+    {
+        "TestName":"ASAP",
+        "AlgPath": "graph_counting/src/ASAP_single_machine/GraphCounting.out",
+        "GraphPath": "friendster",
+        "PatternPath": "triangle"
+    },
+    {
+        "TestName":"ASAP",
+        "AlgPath": "graph_counting/src/ASAP_single_machine/GraphCounting.out",
+        "GraphPath": "livej",
+        "PatternPath": "triangle"
+    },
+    {
+        "TestName":"ASAP",
+        "AlgPath": "graph_counting/src/ASAP_single_machine/GraphCounting.out",
+        "GraphPath": "okrut",
+        "PatternPath": "triangle"
+    },
+    {
+        "TestName":"ASAP",
+        "AlgPath": "graph_counting/src/ASAP_single_machine/GraphCounting.out",
+        "GraphPath": "twitter40",
+        "PatternPath": "triangle"
+    }
+
+    /*------ARYA 5CYCLE------*/
+    {
+        "TestName":"arya",
+        "AlgPath": "graph_counting/src/multi_thread_single_machine/GraphCounting.out",
+        "GraphPath": "citeseer",
+        "PatternPath": "5cycle-edge"
+    },
+    {
+        "TestName":"arya",
+        "AlgPath": "graph_counting/src/multi_thread_single_machine/GraphCounting.out",
+        "GraphPath": "livej",
+        "PatternPath": "5cycle-edge"
+    },
+    {
+        "TestName":"arya",
+        "AlgPath": "graph_counting/src/multi_thread_single_machine/GraphCounting.out",
+        "GraphPath": "okrut",
+        "PatternPath": "5cycle-edge"
+    },
+    {
+        "TestName":"arya",
+        "AlgPath": "graph_counting/src/multi_thread_single_machine/GraphCounting.out",
+        "GraphPath": "twitter40",
+        "PatternPath": "5cycle-edge"
+    },
+
+]

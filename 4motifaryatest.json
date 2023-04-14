@@ -1,0 +1,40 @@
+{
+"SamplingCounts": ["500000", "1000000","5000000", "10000000","50000000"], 
+"Tests": 
+[ {
+    "TestName":"arya-3_star",
+    "AlgPath": "../arya/graph_counting/src/multi_thread_single_machine/GraphCounting.out",
+    "GraphPath": "../arya/graph_counting/graphs/mico/mico.undigraph",
+    "PatternPath": "../arya/graph_counting/patterns/4_motif/3_star"
+},
+{
+    "TestName":"arya-4_chain",
+    "AlgPath": "../arya/graph_counting/src/multi_thread_single_machine/GraphCounting.out",
+    "GraphPath": "../arya/graph_counting/graphs/mico/mico.undigraph",
+    "PatternPath": "../arya/graph_counting/patterns/4_motif/4_chain"
+},
+{
+    "TestName":"arya-4_clique",
+    "AlgPath": "../arya/graph_counting/src/multi_thread_single_machine/GraphCounting.out",
+    "GraphPath": "../arya/graph_counting/graphs/mico/mico.undigraph",
+    "PatternPath": "../arya/graph_counting/patterns/4_motif/4_clique"
+},
+{
+    "TestName":"arya-4_cycle",
+    "AlgPath": "../arya/graph_counting/src/multi_thread_single_machine/GraphCounting.out",
+    "GraphPath": "../arya/graph_counting/graphs/mico/mico.undigraph",
+    "PatternPath": "../arya/graph_counting/patterns/4_motif/4_cycle"
+},
+{
+    "TestName":"arya-4_motif_4",
+    "AlgPath": "../arya/graph_counting/src/multi_thread_single_machine/GraphCounting.out",
+    "GraphPath": "../arya/graph_counting/graphs/mico/mico.undigraph",
+    "PatternPath": "../arya/graph_counting/patterns/4_motif/4_motif_4"
+},
+{
+    "TestName":"arya-4_motif_5",
+    "AlgPath": "../arya/graph_counting/src/multi_thread_single_machine/GraphCounting.out",
+    "GraphPath": "../arya/graph_counting/graphs/mico/mico.undigraph",
+    "PatternPath": "../arya/graph_counting/patterns/4_motif/4_motif_5"
+}]
+}

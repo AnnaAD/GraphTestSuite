@@ -1,0 +1,57 @@
+[
+    {
+        "pattern": "triangle",
+        "graph": "livej",
+        "count" :285730264
+    },
+    {
+        "pattern": "triangle",
+        "graph": "okrut",
+        "count" : 627584181
+    },
+    {
+        "pattern": "triangle",
+        "graph": "friendster",
+        "count": 4173724142
+    },
+    {
+        "pattern": "triangle",
+        "graph": "twitter40",
+        "count" : 34824916864
+    },
+    {
+        "pattern": "9clique",
+        "graph": "okrut",
+        "count" :7248102160867
+    },
+    {
+        "pattern": "9clique",
+        "graph": "friendster",
+        "count" : 40033489612826
+    },
+    {
+        "pattern": "5cycle-edge",
+        "graph": "mico",
+        "count" : 394942854039
+    },
+    {
+        "pattern": "5cycle-edge",
+        "graph": "mico",
+        "count" : 40033489612826
+    },
+    {
+        "pattern": "5cycle-edge",
+        "graph": "patent_citations",
+        "count" : 3254769712
+    }, 
+    {
+        "pattern": "5cycle-edge",
+        "graph": "youtube",
+        "count" : 24702570492
+    },
+    {
+        "pattern": "5cycle-edge",
+        "graph": "livej",
+        "count" : 13892452066046
+    }
+]

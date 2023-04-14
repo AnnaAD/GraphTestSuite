@@ -1,0 +1,11 @@
+{
+"SamplingCounts": ["500000", "1000000","5000000", "10000000","50000000"], 
+"Tests": 
+[ {
+    "TestName":"arya-3_star_2_star",
+    "AlgPath": "../arya/graph_counting/src/multi_thread_single_machine/GraphCounting.out",
+    "GraphPath": "../arya/graph_counting/graphs/mico/mico.undigraph",
+    "PatternPath": "../arya/graph_counting/patterns/3_star_2_star"
+}
+]
+}
