@@ -1,0 +1,12 @@
+{
+"SamplingCounts": ["500000", "1000000","5000000", "10000000","50000000"], 
+"Threads": ["40"],
+"Tests": 
+[ {
+    "TestName":"arya-8clique-patentcitation",
+    "AlgPath": "../arya/graph_counting/src/multi_thread_single_machine/GraphCounting.out",
+    "GraphPath": "../arya/patent_citations.undigraph",
+    "PatternPath": "../arya/graph_counting/patterns/8_clique"
+}
+]
+}

@@ -82,8 +82,8 @@ export TBB_LIBRARY_DEBUG=$TBB_INSTALL_DIR/build/linux_intel64_gcc_cc7_libc2.27_d
 
 - friendster and mico report fast/accurate triangle counts, 5 cycle counts, and 3 star counts.
 
-# Problems
-- seeing very high errors on graphs that are not just odd length cycles
+# Arya Problems
+- seeing very high errors on graphs that are not just composed of odd length cycles/stars
 
 results for arya on 4motif:
 https://docs.google.com/spreadsheets/d/1NQPU5_-vb7mE5NGntfIg0ERQvKeQC39d-0r3Xnnk8GM/edit?usp=sharing
@@ -93,4 +93,55 @@ Paper cites N/A for 3star2star counts-- however, I am returning an exact count a
 ## ASAP Problems
 - mico 5house is quite different (ASAP: 26,511,846,609,059 vs edge-count: 1,655,449,692,098).
 
+## 4Motif Sidenote -- Arya Reuse Sampler
+
+In attempt to better reproduce 4motif from the paper, I then used the reuse sampler. However, I was uncertain how to interpret the results. I saw some 4motif specific code was commented out in `reuse_sampler_single_machine/GraphCounting.cc`, however I made no changes to encorperate the commented out code.
+
+I attempted to run the reuse sampler as specified in the readme.
+
+Input:
+```
+mpirun -n 4 ./../ad/graph_counting/src/reuse_sampler_single_machine/GraphCounting.out ../arya/graph_counting/graphs/mico/mico.undigraph ../ad/graph_counting/patterns/4_motif/3_star,../ad/graph_counting/patterns/4_motif/4_chain,../ad/graph_counting/patterns/4_motif/4_clique,../ad/graph_counting/patterns/4_motif/4_cycle,../ad/graph_counting/patterns/4_motif/4_motif_4,../ad/graph_counting/patterns/4_motif/4_motif_5 500000,500000,500000,500000,500000,500000 4,4,4,4,4,4 4
+```
+
+Output:
+```
+***** main: all threads finished 
+raw results after merge threads (total_prob_inverse, total_sampled_times): 
+4436479086366712 501000
+pattern_nums sampling_times
+8855247677.378666 501000
+total_time_consumed(us) 227434
+
+total_running_time = 227434
+
+***** main: all threads finished 
+raw results after merge threads (total_prob_inverse, total_sampled_times): 
+4427335328192392 501000
+pattern_nums sampling_times
+8836996663.058666 501000
+total_time_consumed(us) 237581
+
+total_running_time = 237581
+
+***** main: all threads finished 
+raw results after merge threads (total_prob_inverse, total_sampled_times): 
+4432313516600200 501000
+pattern_nums sampling_times
+8846933166.866667 501000
+total_time_consumed(us) 239860
+
+total_running_time = 239860
+
+***** main: all threads finished 
+raw results after merge threads (total_prob_inverse, total_sampled_times): 
+4446664918561096 501000
+pattern_nums sampling_times
+8875578679.762667 501000
+total_time_consumed(us) 292727
+
+total_running_time = 292727
+```
+
+Why are there only four results for the patterns? What do they correspond to and why don't they line up?
 

@@ -31,11 +31,12 @@ def gen_args(depth):
     
     return output
 
+threads = tests["Threads"]
 def run_tests(testname, program, graph_name, pattern, base = False):
     results = {}
     for i in gen_args(depth):
-        print(f"mpirun -n 4 ./{program} {graph_name} {pattern} {i[0]} 40 4")
-        var = os.popen(f"mpirun -n 4 {program} {graph_name} {pattern} {i[0]} 40 4").read() 
+        print(f"mpirun -n 4 ./{program} {graph_name} {pattern} {i[0]} {threads[0]} 4")
+        var = os.popen(f"mpirun -n 4 {program} {graph_name} {pattern} {i[0]} {threads[0]} 4").read() 
         m = re.findall('([0-9e\+.]+) ([0-9e\+.]+) ([0-9e\+.]+) ([0-9e\+.]+)', var)
 
         if (base):

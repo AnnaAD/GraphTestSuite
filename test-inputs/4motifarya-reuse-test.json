@@ -1,0 +1,11 @@
+{
+"SamplingCounts": ["500000,500000,500000,500000,500000,500000", "1000000,1000000,1000000,1000000,1000000,1000000","5000000", "1000000,1000000,1000000,1000000,1000000,1000000","50000000,50000000,50000000,50000000,50000000,50000000"],
+"Threads" : ["4,4,4,4,4,4"], 
+"Tests": 
+[ {
+    "TestName":"arya-4motif-reuse",
+    "AlgPath": "../ad/graph_counting/src/reuse_sampler_single_machine/GraphCounting.out",
+    "GraphPath": "../arya/graph_counting/graphs/mico/mico.undigraph",
+    "PatternPath": "../ad/graph_counting/patterns/4_motif/3_star,../ad/graph_counting/patterns/4_motif/4_chain,../ad/graph_counting/patterns/4_motif/4_clique,../ad/graph_counting/patterns/4_motif/4_cycle,../ad/graph_counting/patterns/4_motif/4_motif_4,../ad/graph_counting/patterns/4_motif/4_motif_5"
+}]
+}
